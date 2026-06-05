@@ -19,6 +19,7 @@ df = pd.read_csv("netflix_titles.csv")
 # =====================
 # SIDEBAR
 # =====================
+
 st.sidebar.title("Navigation")
 
 page = st.sidebar.radio(
@@ -30,6 +31,18 @@ page = st.sidebar.radio(
         "CRISP-DM"
     ]
 )
+
+# FILTERS
+st.sidebar.markdown("---")
+st.sidebar.subheader("Dataset Filters")
+
+content_type = st.sidebar.selectbox(
+    "Content Type",
+    ["All", "Movie", "TV Show"]
+)
+
+if content_type != "All":
+    df = df[df["type"] == content_type]
 
 # =====================
 # OVERVIEW
