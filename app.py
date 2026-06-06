@@ -69,16 +69,90 @@ if page == "Overview":
 # =====================
 elif page == "Visualizations":
 
-    st.title("📊 Data Visualization")
+    st.title("📊 Netflix Dataset Exploration")
+
+    st.subheader("1. Content Type Distribution")
 
     fig, ax = plt.subplots()
+    df["type"].value_counts().plot(kind="bar", ax=ax)
+    ax.set_ylabel("Count")
+    st.pyplot(fig)
 
-    df["type"].value_counts().plot(
+    # =====================================
+    # Release Year Distribution
+    # =====================================
+
+    st.subheader("2. Content Released by Year")
+
+    fig, ax = plt.subplots(figsize=(10,4))
+
+    df["release_year"].value_counts().sort_index().plot(
+        ax=ax
+    )
+
+    ax.set_xlabel("Release Year")
+    ax.set_ylabel("Number of Titles")
+
+    st.pyplot(fig)
+
+    # =====================================
+    # Top Countries
+    # =====================================
+
+    st.subheader("3. Top 10 Countries")
+
+    country_counts = (
+        df["country"]
+        .dropna()
+        .str.split(", ")
+        .explode()
+        .value_counts()
+        .head(10)
+    )
+
+    fig, ax = plt.subplots(figsize=(8,4))
+
+    country_counts.plot(
         kind="bar",
         ax=ax
     )
 
+    ax.set_ylabel("Count")
+
     st.pyplot(fig)
+
+    # =====================================
+    # Top Genres
+    # =====================================
+
+    st.subheader("4. Top 10 Genres")
+
+    genre_counts = (
+        df["listed_in"]
+        .str.split(", ")
+        .explode()
+        .value_counts()
+        .head(10)
+    )
+
+    fig, ax = plt.subplots(figsize=(8,4))
+
+    genre_counts.plot(
+        kind="bar",
+        ax=ax
+    )
+
+    ax.set_ylabel("Count")
+
+    st.pyplot(fig)
+
+    # =====================================
+    # Dataset Preview
+    # =====================================
+
+    st.subheader("5. Dataset Preview")
+
+    st.dataframe(df.head(20))
 
 # =====================
 # MODEL PERFORMANCE
