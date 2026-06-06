@@ -202,85 +202,85 @@ else:
 
    st.title("📚 CRISP-DM Process")
 
-st.header("1️⃣ Business Understanding")
+    st.header("1️⃣ Business Understanding")
 
-st.write("""
-The objective of this project is to predict whether a Netflix title
-belongs to the Mature Content category or Non-Mature Content category.
-This prediction can help streaming platforms better understand content
-classification and improve recommendation systems.
-""")
-
-st.header("2️⃣ Data Understanding")
-
-st.write("""
-The dataset used is the Netflix Titles Dataset containing 8,807 records.
-
-Main attributes include:
-- Type (Movie / TV Show)
-- Release Year
-- Country
-- Genre
-- Cast
-- Director
-- Description
-- Duration
-""")
-
-st.header("3️⃣ Data Preparation")
-
-st.write("""
-Several preprocessing steps were performed:
-
-✔ Handling missing values
-
-✔ Feature engineering
-
-✔ Creating new variables:
-- genre_count
-- country_count
-- cast_count
-- description_length
-- content_age_when_added
-
-✔ Data transformation and encoding
-""")
-
-st.header("4️⃣ Modeling")
-
-st.write("""
-Three machine learning algorithms were tested:
-
-• Logistic Regression
-
-• Random Forest
-
-• Gradient Boosting
-""")
-
-st.header("5️⃣ Evaluation")
-
-results = pd.DataFrame({
-    "Model": [
-        "Gradient Boosting",
-        "Random Forest",
-        "Logistic Regression"
-    ],
-    "Accuracy": [0.7081, 0.7179, 0.6990],
-    "F1 Score": [0.7174, 0.7099, 0.6843],
-    "ROC-AUC": [0.7938, 0.8124, 0.7844]
-})
-
-st.dataframe(results)
-
-st.success(
-    "Gradient Boosting achieved the highest F1 Score (0.7174), making it the best-performing model for this project."
-)
-
-st.header("6️⃣ Deployment")
-
-st.write("""
-The final solution was deployed using Streamlit,
-allowing users to explore the dataset, visualize insights,
-and review machine learning results through an interactive dashboard.
-""")
+        st.write("""
+        The objective of this project is to predict whether a Netflix title
+        belongs to the Mature Content category or Non-Mature Content category.
+        This prediction can help streaming platforms better understand content
+        classification and improve recommendation systems.
+        """)
+        
+        st.header("2️⃣ Data Understanding")
+        
+        st.write("""
+        The dataset used is the Netflix Titles Dataset containing 8,807 records.
+        
+        Main attributes include:
+        - Type (Movie / TV Show)
+        - Release Year
+        - Country
+        - Genre
+        - Cast
+        - Director
+        - Description
+        - Duration
+        """)
+        
+        st.header("3️⃣ Data Preparation")
+        
+        st.write("""
+        Several preprocessing steps were performed:
+        
+        ✔ Handling missing values
+        
+        ✔ Feature engineering
+        
+        ✔ Creating new variables:
+        - genre_count
+        - country_count
+        - cast_count
+        - description_length
+        - content_age_when_added
+        
+        ✔ Data transformation and encoding
+        """)
+        
+        st.header("4️⃣ Modeling")
+        
+        st.write("""
+        Three machine learning algorithms were tested:
+        
+        • Logistic Regression
+        
+        • Random Forest
+        
+        • Gradient Boosting
+        """)
+        
+        st.header("5️⃣ Evaluation")
+        
+        results = pd.DataFrame({
+            "Model": [
+                "Gradient Boosting",
+                "Random Forest",
+                "Logistic Regression"
+            ],
+            "Accuracy": [0.7081, 0.7179, 0.6990],
+            "F1 Score": [0.7174, 0.7099, 0.6843],
+            "ROC-AUC": [0.7938, 0.8124, 0.7844]
+        })
+        
+        st.dataframe(results)
+        
+        st.success(
+            "Gradient Boosting achieved the highest F1 Score (0.7174), making it the best-performing model for this project."
+        )
+        
+        st.header("6️⃣ Deployment")
+        
+        st.write("""
+        The final solution was deployed using Streamlit,
+        allowing users to explore the dataset, visualize insights,
+        and review machine learning results through an interactive dashboard.
+        """)
