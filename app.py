@@ -200,9 +200,9 @@ elif page == "Model Performance":
 # =====================
 else:
 
-   st.title("📚 CRISP-DM Process")
+        st.title("📚 CRISP-DM Process")
 
-    st.header("1️⃣ Business Understanding")
+        st.header("1️⃣ Business Understanding")
 
         st.write("""
         The objective of this project is to predict whether a Netflix title
