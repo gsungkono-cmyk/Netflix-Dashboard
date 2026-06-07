@@ -50,6 +50,11 @@ if content_type != "All":
 if page == "Overview":
 
     st.title("🎬 Netflix Mature Content Prediction")
+    st.info("""
+    This dashboard analyzes Netflix titles and compares machine learning models
+    for predicting mature content classification. Users can explore dataset insights,
+    model performance, and the CRISP-DM process through an interactive interface.
+    """)
 
     total_titles = len(df)
     total_movies = len(df[df["type"] == "Movie"])
@@ -72,6 +77,9 @@ elif page == "Visualizations":
     st.title("📊 Netflix Dataset Exploration")
 
     st.subheader("1. Content Type Distribution")
+    st.caption(
+    "This chart compares the number of Movies and TV Shows available in the selected dataset."
+    )
 
     fig, ax = plt.subplots()
     df["type"].value_counts().plot(kind="bar", ax=ax)
@@ -83,6 +91,9 @@ elif page == "Visualizations":
     # =====================================
 
     st.subheader("2. Content Released by Year")
+    st.caption(
+    "This visualization shows how Netflix content production has changed over time."
+    )
 
     fig, ax = plt.subplots(figsize=(10,4))
 
@@ -100,6 +111,9 @@ elif page == "Visualizations":
     # =====================================
 
     st.subheader("3. Top 10 Countries")
+    st.caption(
+    "This chart highlights the countries contributing the largest amount of content to Netflix."
+    )
 
     country_counts = (
         df["country"]
@@ -126,6 +140,9 @@ elif page == "Visualizations":
     # =====================================
 
     st.subheader("4. Top 10 Genres")
+    st.caption(
+    "This visualization identifies the most common genres found in the Netflix dataset."
+    )
 
     genre_counts = (
         df["listed_in"]
@@ -151,6 +168,9 @@ elif page == "Visualizations":
     # =====================================
 
     st.subheader("5. Dataset Preview")
+    st.caption(
+    "A sample of the dataset used for analysis and model development."
+    )
 
     st.dataframe(df.head(20))
 
@@ -160,6 +180,11 @@ elif page == "Visualizations":
 elif page == "Model Performance":
 
     st.title("🤖 Model Performance")
+    st.info("""
+    This section compares the performance of three classification models:
+    Logistic Regression, Random Forest, and Gradient Boosting.
+    Evaluation metrics include Accuracy, F1-Score, and ROC-AUC.
+    """)
 
     results = pd.DataFrame({
         "Model":[
